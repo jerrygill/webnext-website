@@ -215,7 +215,7 @@ collections:
               - title: "Pellentesque dignissim malesuada varius et semper semper rutrum ad risus felis eros."
                 category: "Creative"
                 date: "MARCH 24, 2024"
-                 featured_image: "assets/img/blog/blog-hover2.png"
+                featured_image: "assets/img/blog/blog-hover2.png"
           - label: "Navigation Menu"
             name: "navigation"
             widget: "list"
@@ -294,8 +294,8 @@ collections:
                   - name: "Blog Details"
                     link: "blog-details.html"
               - name: "Contact Us"
-                 link: "contact.html"
-                 has_submenu: false
+                link: "contact.html"
+                has_submenu: false
           - label: "Footer Menu"
             name: "footer_menu"
             widget: "object"
