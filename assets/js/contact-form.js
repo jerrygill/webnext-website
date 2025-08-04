@@ -141,12 +141,28 @@ class ContactFormHandler {
     }
 
     async submitToNetlify(formData) {
-        // Submit to Netlify function for better handling
-        return fetch('/.netlify/functions/contact-form', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(formData).toString()
-        });
+        // Check if running locally or on Netlify
+        const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+        
+        if (isLocal) {
+            // For local development, simulate successful submission
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve({
+                        ok: true,
+                        status: 200,
+                        json: () => Promise.resolve({ message: 'Form submitted successfully (local mode)' })
+                    });
+                }, 1000); // Simulate network delay
+            });
+        } else {
+            // For production, use Netlify function
+            return fetch('/.netlify/functions/contact-form', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            });
+        }
     }
 
     validateForm() {

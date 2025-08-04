@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Content Manager (Local Development)</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .local-notice {
+      background: #e3f2fd;
+      border: 1px solid #2196f3;
+      border-radius: 4px;
+      padding: 15px;
+      margin-bottom: 20px;
+      color: #1976d2;
+    }
+    .local-notice h3 {
+      margin: 0 0 10px 0;
+      color: #1976d2;
+    }
+    .cms-container {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      min-height: 600px;
+    }
+  </style>
+</head>
+<body>
+  <div class="local-notice">
+    <h3>🚀 Local Development Mode</h3>
+    <p>You're running the CMS in local development mode. Changes will be saved to your local files.</p>
+    <p><strong>Note:</strong> For the full CMS experience with authentication, deploy to Netlify and access <code>/admin</code>.</p>
+  </div>
+  
+  <div class="cms-container">
+    <div id="nc-root"></div>
+  </div>
+
+  <!-- Include the script that builds the page and powers Netlify CMS -->
+  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  
+  <script>
+    // Initialize CMS with local backend
+    CMS.init({
+      config: {
+        local_backend: true,
+        backend: {
+          name: 'test-repo'
+        },
+        media_folder: 'assets/img/uploads',
+        public_folder: '/assets/img/uploads',
+        collections: [
+          {
+            name: 'settings',
+            label: 'Site Settings',
+            files: [
+              {
+                label: 'General Settings',
+                name: 'general',
+                file: '_data/settings.json',
+                fields: [
+                  { label: 'Site Title', name: 'site_title', widget: 'string' },
+                  { label: 'Site Description', name: 'site_description', widget: 'text' },
+                  { label: 'Site URL', name: 'site_url', widget: 'string' },
+                  { label: 'Phone Number', name: 'phone', widget: 'string' },
+                  { label: 'Email Address', name: 'email', widget: 'string' },
+                  { label: 'Company Address', name: 'address', widget: 'string' },
+                  { label: 'Company Description', name: 'company_description', widget: 'text' },
+                  { label: 'Copyright Text', name: 'copyright_text', widget: 'string' }
+                ]
+              }
+            ]
+          },
+          {
+            name: 'contact_settings',
+            label: 'Contact Settings',
+            files: [
+              {
+                label: 'Contact Information & Form Settings',
+                name: 'contact',
+                file: '_data/contact.json',
+                fields: [
+                  {
+                    label: 'Contact Information',
+                    name: 'contact_info',
+                    widget: 'object',
+                    fields: [
+                      { label: 'Primary Phone', name: 'phone', widget: 'string' },
+                      { label: 'Primary Email', name: 'email_primary', widget: 'string' },
+                      { label: 'Address Line 1', name: 'address_line1', widget: 'string' },
+                      { label: 'Address Line 2', name: 'address_line2', widget: 'string' }
+                    ]
+                  },
+                  {
+                    label: 'Contact Form Settings',
+                    name: 'form_settings',
+                    widget: 'object',
+                    fields: [
+                      { label: 'Form Title', name: 'form_title', widget: 'string' },
+                      { label: 'Success Message', name: 'success_message', widget: 'text' },
+                      { label: 'Error Message', name: 'error_message', widget: 'text' },
+                      { 
+                        label: 'Service Options', 
+                        name: 'service_options', 
+                        widget: 'list',
+                        default: ['Web Development', 'Mobile App Development', 'Digital Marketing', 'UI/UX Design']
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    });
+  </script>
+</body>
+</html>
