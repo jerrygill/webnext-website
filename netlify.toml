@@ -28,6 +28,14 @@
   to = "/.netlify/functions/contact-form"
   status = 200
 
+# Admin config redirect
+[[redirects]]
+  from = "/admin/config.yml"
+  to = "/admin/config.yml"
+  status = 200
+  force = true
+  headers = {Content-Type = "text/yaml; charset=utf-8"}
+
 # Headers for security
 [[headers]]
   for = "/*"
@@ -65,6 +73,18 @@
   for = "/admin/*"
   [headers.values]
     X-Robots-Tag = "noindex"
+    Cache-Control = "no-cache"
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+
+# Admin config file
+[[headers]]
+  for = "/admin/config.yml"
+  [headers.values]
+    Content-Type = "text/yaml; charset=utf-8"
+    Cache-Control = "no-cache"
+    Access-Control-Allow-Origin = "*"
 
 # 404 page
 [[redirects]]
