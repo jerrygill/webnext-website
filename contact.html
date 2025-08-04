@@ -338,16 +338,18 @@
                                 <span class="wow fadeInUp">contact us<i class="fa-solid fa-arrow-right"></i></span>
                                 <h2 class="wow fadeInUp" data-wow-delay=".3s">Get in touch!</h2>
                             </div>
-                            <form action="contact.php" id="contact-form" method="POST" class="mt-4 mt-md-0">
+                            <form name="contact" id="contact-form" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="mt-4 mt-md-0">
+                                <!-- Honeypot field for spam protection -->
+                                <input type="hidden" name="bot-field" />
                                 <div class="row g-4">
                                     <div class="col-lg-6">
                                         <div class="form-clt">
-                                            <input type="text" name="name" id="name" placeholder="Full Name*">
+                                            <input type="text" name="name" id="name" placeholder="Full Name*" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-clt">
-                                            <input type="text" name="email" id="email2" placeholder="Email Address*">
+                                            <input type="email" name="email" id="email2" placeholder="Email Address*" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
@@ -372,7 +374,7 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-clt">
-                                            <textarea name="message" id="message" placeholder="Your Message"></textarea>
+                                            <textarea name="message" id="message" placeholder="Your Message" required rows="5"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-lg-7">
@@ -646,6 +648,8 @@
     <script src="assets/js/vanilla-tilt.min.js"></script>
     <!-- js Mian start -->
     <script src="assets/js/main.js"></script>
+    <!-- Contact Form Handler -->
+    <script src="assets/js/contact-form.js"></script>
 
 </body>
 
