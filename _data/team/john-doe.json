@@ -1,0 +1,11 @@
+{
+  "name": "John Doe",
+  "position": "Lead Developer",
+  "bio": "Experienced full-stack developer with expertise in modern web technologies and AI integration",
+  "image": "",
+  "social": {
+    "linkedin": "",
+    "twitter": "",
+    "email": "john@webnext.pro"
+  }
+}

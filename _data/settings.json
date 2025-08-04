@@ -1,5 +1,17 @@
 {
   "site_title": "WebNext - Web & AI Solutions",
   "site_description": "Innovative web development, mobile apps, and AI-powered solutions",
-  "site_url": "https://webnext.pro"
+  "site_url": "https://webnext.pro",
+  "phone": "+60 11-6195 3584",
+  "email": "hello@webnext.pro",
+  "hero_title": "Web & AI Solutions",
+  "hero_description": "Innovative web development, mobile apps, and AI-powered solutions to transform your business operations.",
+  "about_title": "We Build Innovative Web & AI Solutions",
+  "about_description": "We specialize in cutting-edge web development, mobile applications, and AI-powered solutions that drive business growth and operational efficiency.",
+  "address": "Remote Services Worldwide",
+  "company_description": "WebNext delivers innovative web development, mobile applications, and AI-powered solutions to transform your business operations and drive growth.",
+  "copyright_text": "All Copyright 2024 by WebNext",
+  "services_title": "our main services",
+  "newsletter_title": "Newsletter",
+  "newsletter_description": "Sign up to seargin weekly newsletter to get the latest updates."
 }
